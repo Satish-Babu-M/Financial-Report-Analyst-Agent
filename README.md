@@ -82,4 +82,70 @@ Planned later:
 
 ---
 
+
+
+
 ## Architecture overview (local tool)
+
+User (CLI)
+↓
+Ingestion (PDF / HTML / TXT)
+↓
+Section chunking + table extraction
+↓
+Local storage (SQLite + JSON artifacts)
+↓
+Embedding + vector index (FAISS)
+↓
+Agent orchestrator
+├─ Structured extraction
+├─ Summary generation
+└─ Q&A with citations
+↓
+Markdown / JSON output
+
+
+---
+
+## Tech stack
+
+### Core
+- Python 3.11+
+- Typer (CLI)
+- PyMuPDF (PDF parsing)
+- SQLite or DuckDB (local storage)
+- FAISS (vector search)
+- Pydantic (schema validation)
+
+### AI
+- OpenAI embeddings and models (default)
+- Optional local models later
+
+### Optional (future)
+- FastAPI (backend API)
+- Postgres + pgvector
+- React / Next.js frontend
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/Satish-Babu-M/financial-report-agent.git
+cd financial-report-agent
+
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+pip install -r requirements.txt
+
+
+
+## Documentation
+
+Detailed documentation is available in the `/docs` folder:
+
+- [Architecture Overview](docs/architecture.md)
+- [CLI Usage](docs/cli.md)
+- [Data Model](docs/data-model.md)
+- [Roadmap](docs/roadmap.md)
