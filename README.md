@@ -83,27 +83,36 @@ Planned later:
 ---
 
 
+---
 
-
-## Architecture overview (local tool)
+Architecture Overview
+---------------------
+```
+Architecture Overview
 
 User (CLI)
-↓
+  |
+  v
 Ingestion (PDF / HTML / TXT)
-↓
-Section chunking + table extraction
-↓
-Local storage (SQLite + JSON artifacts)
-↓
-Embedding + vector index (FAISS)
-↓
-Agent orchestrator
-├─ Structured extraction
-├─ Summary generation
-└─ Q&A with citations
-↓
-Markdown / JSON output
-
+  |
+  v
+Section Chunking + Table Extraction
+  |
+  v
+Local Storage (SQLite + JSON Artifacts)
+  |
+  v
+Embedding Generation + Vector Index (FAISS)
+  |
+  v
+Agent Orchestrator
+  |-- Structured Metric Extraction
+  |-- Executive Summary Generation
+  |-- Q&A with Citations
+  |
+  v
+Markdown / JSON Output
+```
 
 ---
 
@@ -138,7 +147,7 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 
 pip install -r requirements.txt
-
+```
 
 
 ## Documentation
